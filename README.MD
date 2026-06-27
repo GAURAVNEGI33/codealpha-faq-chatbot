@@ -51,3 +51,8 @@ python chatbot.py
 > 🔄 On first run, NLTK will automatically download required data (`punkt`, `stopwords`, `wordnet`). This is normal and only happens once.
 
 ---
+---
+
+## 📸 Screenshots
+
+<img src="screenshots/demo1.png" width="600">
