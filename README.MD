@@ -1,52 +1,53 @@
-FAQ Chatbot (NLP-based)
+# 🎓 College Admission FAQ Chatbot
 
-CodeAlpha Internship – Task 2
+> An NLP-powered chatbot that instantly answers common college admission queries using TF-IDF and Cosine Similarity.
 
-A simple command-line chatbot that answers user questions about college B.Tech admissions (eligibility, fees, hostel, scholarships, placements, etc.) by matching them against predefined FAQs using NLP preprocessing and cosine similarity.
+**🔖 CodeAlpha Internship — Task 2**
 
-Tech Stack
+---
 
+## 📌 Overview
 
-Python
-NLTK (tokenization, stopword removal, lemmatization)
-scikit-learn (TF-IDF vectorization + Cosine Similarity)
+This is a command-line chatbot built to answer frequently asked questions related to **B.Tech college admissions** — covering eligibility, fees, hostel facilities, scholarships, placements, and more.
 
+Instead of hardcoding exact question matches, the bot uses **Natural Language Processing (NLP)** techniques to understand the *meaning* of a user's question and find the most relevant FAQ — even if the wording is different.
 
-How It Works
+---
 
+## 🛠️ Tech Stack
 
-FAQ question-answer pairs are loaded from faqs.json
-Each FAQ question is preprocessed: lowercased, tokenized, punctuation & stopwords removed, lemmatized
-All FAQ questions are converted into TF-IDF vectors
-When the user types a question, it goes through the same preprocessing and vectorization
-Cosine similarity is calculated between the user's question and every FAQ question
-The FAQ with the highest similarity score is returned as the answer (if above a similarity threshold)
+| Technology | Purpose |
+|---|---|
+| **Python** | Core programming language |
+| **NLTK** | Text preprocessing (tokenization, stopword removal, lemmatization) |
+| **scikit-learn** | TF-IDF vectorization & Cosine Similarity matching |
 
+---
 
-How to Run
+## ⚙️ How It Works
 
-bashpip install nltk scikit-learn
+The chatbot follows a simple NLP pipeline:
+
+1. **Load FAQs** — Question-answer pairs are loaded from `faqs.json`
+2. **Preprocess Text** — Each question is lowercased, tokenized, stripped of punctuation/stopwords, and lemmatized
+3. **Vectorize** — All FAQ questions are converted into numeric TF-IDF vectors
+4. **Match User Query** — The user's question goes through the same preprocessing, then gets compared using **Cosine Similarity**
+5. **Return Best Answer** — The FAQ with the highest similarity score is returned (if it crosses a confidence threshold)
+
+---
+
+## 🚀 How to Run
+
+**1. Install dependencies**
+```bash
+pip install nltk scikit-learn
+```
+
+**2. Run the chatbot**
+```bash
 python chatbot.py
+```
 
-On first run, NLTK will automatically download required data (punkt, stopwords, wordnet).
+> 🔄 On first run, NLTK will automatically download required data (`punkt`, `stopwords`, `wordnet`). This is normal and only happens once.
 
-Example
-
-You: What is the eligibility for B.Tech admission?
-Bot: Candidates must have passed 12th grade with Physics, Chemistry, and Mathematics...
-
-You: exit
-Bot: Goodbye! 👋
-
-Files
-
-
-chatbot.py — main chatbot logic
-faqs.json — FAQ dataset (question-answer pairs)
-
-
-Future Improvements
-
-
-Add a web-based UI using Flask
-Use word embeddings (Word2Vec/BERT) instead of TF-IDF for better semantic matching
+---
